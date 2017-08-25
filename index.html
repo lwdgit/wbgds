@@ -9,9 +9,9 @@
 <body>
 
 <script charset="utf-8" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.13/d3.min.js"></script>
-<script charset="utf-8" src="https://rawgithub.com/artzub/dbsv/master/progressbar.js"></script>
-<script charset="utf-8" src="https://rawgithub.com/artzub/dbsv/master/tooltip.js"></script>
-<script charset="utf-8" src="https://rawgithub.com/artzub/wbgds/smy/wbc.js"></script>
+<script charset="utf-8" src="./progressbar.js"></script>
+<script charset="utf-8" src="./tooltip.js"></script>
+<script charset="utf-8" src="./wbc.js"></script>
 
 <style>
     html, body {
@@ -2297,9 +2297,7 @@ var ONE_SECOND = 1000,
 
     imgPreloader.show();
 
-    d3.json(document.location.href.indexOf('visualizing.org') > -1
-        ? "/sites/default/files/sprint/data/world-countries.json"
-        : "world-countries.json", function (error, collection) {
+    d3.json("world-countries.json", function (error, collection) {
 
         feature = feature
             .data(collection.features)
@@ -2313,7 +2311,7 @@ var ONE_SECOND = 1000,
             .on("mouseout", outpath)
 */
         if (document.location.href.indexOf('visualizing.org') > -1)
-            d3.csv("/sites/default/files/data_set/admin/sprint_major-contract-awards-2013.csv", request);
+            d3.csv("./sprint_major-contract-awards-2013.csv", request);
         else
 			d3.csv(fy + '.csv', request);            
     });
